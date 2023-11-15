@@ -46,4 +46,6 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation ("org.asynchttpclient:async-http-client:3.0.0.Beta3")
+    implementation ("org.pmml4s:pmml4s_2.12:0.9.3")
+    implementation ("com.github.jpmml:jpmml-model:1.6.4")
 }

@@ -1,6 +1,7 @@
 package com.example.brewbot;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -8,6 +9,23 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.brewbot.httptasks.LoginTask;
+
+import org.dmg.pmml.PMML;
+import org.pmml4s.common.Evaluator;
+import org.pmml4s.model.Model;
+import org.xml.sax.SAXException;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Map;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import jakarta.xml.bind.JAXBException;
 
 public class MainActivity extends AppCompatActivity {
     private Button newUserButton;
@@ -27,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         newUserButton = (Button)findViewById(R.id.register);
         newUserButton.setOnClickListener(view -> registerAccount());
+
     }
 
     public void goToHomeScreen(){

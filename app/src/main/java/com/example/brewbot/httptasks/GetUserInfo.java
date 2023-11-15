@@ -2,11 +2,13 @@ package com.example.brewbot.httptasks;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.ColorSpace;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.widget.Toast;
 import android.widget.TextView;
 
+import com.example.brewbot.MainActivity;
 import com.example.brewbot.User;
 import com.example.brewbot.homescreenActivity;
 
@@ -16,6 +18,7 @@ import org.asynchttpclient.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
+import org.pmml4s.model.Model;
 
 import java.io.IOException;
 
@@ -58,6 +61,8 @@ public class GetUserInfo extends AsyncTask {
                 User.getInstance().setEmail(userObject.getString("email"));
                 User.getInstance().setAge(userObject.getInt("age"));
                 User.getInstance().setGender(userObject.getString("gender"));
+
+                // TODO Set profile
 
                 // Go to homescreen
                 Intent intent = new Intent(this.context, homescreenActivity.class);
