@@ -62,7 +62,14 @@ public class GetUserInfo extends AsyncTask {
                 User.getInstance().setAge(userObject.getInt("age"));
                 User.getInstance().setGender(userObject.getString("gender"));
 
-                // TODO Set profile
+                // TODO Set profile (Dit werkt dus niet om een of andere reden)
+                /*
+                Model bijgevoegd is om te testen, nieuw beter model is nog in ontwikkeling.
+                 */
+                Model model = Model.fromFile("DrinkHabitsClassifier.pmml");
+                int[] data = {3,1,0}; // voorbeeld van de input
+                model.predict(data); // Output is x1, x2, x3, of x4
+
 
                 // Go to homescreen
                 Intent intent = new Intent(this.context, homescreenActivity.class);
