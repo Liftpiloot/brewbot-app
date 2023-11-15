@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundBeige"
+    tools:context=".registerActivity">
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2B180A"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="Register"
+        android:textColor="@color/white"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852" />
+
+    <EditText
+        android:id="@+id/editTextAge"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="#FFFFFF"
+        android:digits="0123456789"
+        android:ems="10"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:hint="Age"
+        android:inputType="number|none"
+        android:maxLength="2"
+        android:textAlignment="center"
+        android:textColor="@color/BrewBotBrown"
+        android:textColorHint="@color/BrewBotOrange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextUserName"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:hint="Username"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="@color/BrewBotBrown"
+        android:textColorHint="@color/BrewBotOrange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:hint="Password"
+        android:inputType="text|textPassword"
+        android:textAlignment="center"
+        android:textColor="@color/BrewBotBrown"
+        android:textColorHint="@color/BrewBotOrange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.739" />
+
+    <EditText
+        android:id="@+id/editTextMail"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:hint="Mail"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="@color/BrewBotBrown"
+        android:textColorHint="@color/BrewBotOrange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4">
+
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/BrewBotBrown"
+            android:buttonTint="@color/BrewBotBrown"
+            android:fontFamily="@font/zcool_qingke_huangyou"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/BrewBotBrown"
+            android:buttonTint="@color/BrewBotBrown"
+            android:fontFamily="@font/zcool_qingke_huangyou"
+            android:text="Female" />
+
+        <RadioButton
+            android:id="@+id/other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/BrewBotBrown"
+            android:buttonTint="@color/BrewBotBrown"
+            android:fontFamily="@font/zcool_qingke_huangyou"
+            android:text="Other" />
+
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="242dp"
+        android:layout_height="204dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047"
+        app:srcCompat="@drawable/logobrewbot" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

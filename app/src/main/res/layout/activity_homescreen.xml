@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundBeige"
+    tools:context=".homescreenActivity">
+
+    <ImageView
+        android:id="@+id/beerLine"
+        android:layout_width="444dp"
+        android:layout_height="600dp"
+        android:layout_marginBottom="-400dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/beer_line" />
+
+    <ImageView
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042"
+        app:srcCompat="@drawable/baseline_menu_black_24dp" />
+
+    <View
+        android:id="@+id/statisticCard"
+        android:layout_width="280dp"
+        android:layout_height="415dp"
+        android:background="@drawable/rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.835" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="Last beer | 12 min ago"
+        android:textColor="@color/BrewBotBrown"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/statisticCard"
+        app:layout_constraintEnd_toEndOf="@+id/statisticCard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/statisticCard"
+        app:layout_constraintTop_toTopOf="@+id/statisticCard"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <TextView
+        android:id="@+id/statTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="Drinking trend"
+        android:textColor="@color/BrewBotBrown"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/statisticCard"
+        app:layout_constraintEnd_toEndOf="@+id/statisticCard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/statisticCard"
+        app:layout_constraintTop_toTopOf="@+id/statisticCard"
+        app:layout_constraintVertical_bias="0.119" />
+
+    <View
+        android:id="@+id/spinner"
+        android:layout_width="278dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/spinnerrounded"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#00FFFFFF"
+        android:longClickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.784"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15"
+        app:srcCompat="@drawable/tapbutton_circle"
+        android:contentDescription="Tap and hold to tap beer" />
+
+    <View
+        android:id="@+id/tapAnimation"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/tapbutton_circle"
+        app:layout_constraintEnd_toEndOf="@id/imageButton"
+        app:layout_constraintStart_toStartOf="@id/imageButton"
+        app:layout_constraintBottom_toBottomOf="@id/imageButton"
+        app:layout_constraintTop_toTopOf="@id/imageButton"
+    />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="TAP"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        app:layout_constraintVertical_bias="0.472" />
+
+    <TextView
+        android:id="@+id/selectedOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toTopOf="@+id/spinner" />
+
+
+    <TextView
+        android:id="@+id/beerOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="Pils"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toTopOf="@+id/spinner" />
+
+    <TextView
+        android:id="@+id/specialOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="20dp"
+        android:alpha="0"
+        android:enabled="false"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="Special"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinner" />
+
+    <TextView
+        android:id="@+id/alcoholFreeOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:alpha="0"
+        android:enabled="false"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="0.0%"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toTopOf="@+id/spinner" />
+
+    <View
+        android:id="@+id/selectorTriangle"
+        android:layout_width="44dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/selectortriangle"
+        android:rotation="180"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/spinner" />
+
+    <LinearLayout
+        android:id="@+id/barplot"
+        android:layout_width="230dp"
+        android:layout_height="180dp"
+        android:orientation="horizontal"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="@+id/statisticCard"
+        app:layout_constraintEnd_toEndOf="@+id/statisticCard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/statisticCard"
+        app:layout_constraintTop_toBottomOf="@+id/statTitle"
+        app:layout_constraintVertical_bias="0.6">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </View>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </View>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </View>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </View>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </View>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </View>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </View>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/days"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/barplot"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/barplot"
+        app:layout_constraintTop_toBottomOf="@+id/barplot">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/beerCount"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/barplot"
+        app:layout_constraintEnd_toEndOf="@+id/barplot"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/barplot">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/profileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:enabled="false"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="Drinking profile"
+        android:textColor="@color/BrewBotBrown"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/statisticCard"
+        app:layout_constraintEnd_toEndOf="@+id/statisticCard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/statisticCard"
+        app:layout_constraintTop_toTopOf="@+id/statisticCard"
+        app:layout_constraintVertical_bias="0.119" />
+
+    <TextView
+        android:id="@+id/accountSetttingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:enabled="false"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="Account"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/beerLine" />
+
+    <View
+        android:id="@+id/pageIndicatorStat"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="-30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/statisticCard"
+        app:layout_constraintEnd_toEndOf="@+id/statisticCard"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="@+id/statisticCard"
+        app:layout_constraintTop_toTopOf="@+id/statisticCard"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/pageIndicatorProf"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="-30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/statisticCard"
+        app:layout_constraintEnd_toEndOf="@+id/statisticCard"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="@+id/statisticCard"
+        app:layout_constraintTop_toTopOf="@+id/statisticCard"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/longPressHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-30dp"
+        android:alpha="0"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="Press and hold"
+        android:textColor="@color/BrewBotBrown"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:textColor="@color/BrewBotBrown"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
