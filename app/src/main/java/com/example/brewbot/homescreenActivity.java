@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.brewbot.httptasks.AddBeer;
-import com.example.brewbot.httptasks.GetUserInfo;
 
 import java.util.ArrayList;
 
@@ -50,6 +48,8 @@ public class homescreenActivity extends AppCompatActivity {
     private TextView pressHoldHint;
     private TextView userName;
     private int cardWidth = 0;
+    private TextView profileText;
+    private TextView statsCountText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,12 +74,14 @@ public class homescreenActivity extends AppCompatActivity {
         profileTitle = findViewById(R.id.profileTitle);
         beerLine = findViewById(R.id.beerLine);
         settingsButton = findViewById(R.id.settingsButton);
-        accountSettingsButton = findViewById(R.id.accountSetttingsButton);
+        accountSettingsButton = findViewById(R.id.accountSettingsButton);
         pageIndicatorStat = findViewById(R.id.pageIndicatorStat);
         pageIndicatorProf = findViewById(R.id.pageIndicatorProf);
         tapAnimation = findViewById(R.id.tapAnimation);
         pressHoldHint = findViewById(R.id.longPressHint);
         settingsButton.setTranslationZ(11);
+        profileText = findViewById(R.id.profileText);
+        statsCountText = findViewById(R.id.numOfTypes);
 
         // Show username
         userName.setText(User.getInstance().getUsername());
@@ -273,6 +275,8 @@ public class homescreenActivity extends AppCompatActivity {
             // Remove objects
             statisticCard.setAlpha(alpha);
             profileTitle.setAlpha(alpha);
+            profileText.setAlpha(alpha);
+            statsCountText.setAlpha(alpha);
             // If you want to gradually reduce the width, you can update layout parameters as well
             ViewGroup.LayoutParams params = statisticCard.getLayoutParams();
             params.width = (int) (cardWidth * alpha);
@@ -364,17 +368,22 @@ public class homescreenActivity extends AppCompatActivity {
                 super.onAnimationStart(animation);
                 profileTitle.setEnabled(true);
                 statisticCard.setBackgroundResource(R.drawable.rectangleblue);
-                // TODO initialize profile components
+                profileText.setEnabled(true);
+                profileText.setText(User.getInstance().getProfile()[0].toString());
+                int[] types = User.getInstance().getPastWeekTypes();
+                statsCountText.setEnabled(true);
+                statsCountText.setText("Pils: " + types[0] + "\nSpecial: " + types[1] + "\nAlcohol free: " + types[2]);
             }
         });
         animator2.addUpdateListener(valueAnimator -> {
             float alpha = (float) animator2.getAnimatedValue();
             statisticCard.setAlpha(alpha);
             profileTitle.setAlpha(alpha);
-            // If you want to gradually reduce the width, you can update layout parameters as well
             ViewGroup.LayoutParams params = statisticCard.getLayoutParams();
             params.width = (int) (cardWidth * alpha);
             statisticCard.setLayoutParams(params);
+            profileText.setAlpha(alpha);
+            statsCountText.setAlpha(alpha);
         });
         animator2.setDuration(300);
 
@@ -390,7 +399,6 @@ public class homescreenActivity extends AppCompatActivity {
      * @param data Number of beers of past 7 days
      */
     private void createBarPlot(ArrayList<int[]> data) {
-        String[] daysOfWeek = {"Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"};
 
         for (int i = 0; i < data.size(); i++) {
             View child = barplot.getChildAt(6-i);
@@ -399,7 +407,7 @@ public class homescreenActivity extends AppCompatActivity {
             int numBeers = beerDay[1] + beerDay[2];
 
             // Get heights of bar
-            float height = 550.0f / 6 * beerDay[1];
+            float height = 550.0f / 6 * numBeers;
             if (numBeers >= 6) {
                 height = 550;
             }
@@ -420,7 +428,7 @@ public class homescreenActivity extends AppCompatActivity {
             TextView day = new TextView(this);
             day.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
             day.setGravity(Gravity.CENTER); // Center the text horizontally
-            String text = daysOfWeek[i] + '\n' + beerDay[0];
+            String text = String.valueOf(beerDay[0]);
             day.setText(text);
             day.setTextColor(getResources().getColor(R.color.BrewBotBrown));
             // Add the TextView to the 'days' layout

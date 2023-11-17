@@ -24,10 +24,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042"
+        app:layout_constraintVertical_bias="0.08"
         app:srcCompat="@drawable/baseline_menu_black_24dp" />
 
     <View
@@ -40,22 +40,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.835" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/zcool_qingke_huangyou"
-        android:text="Last beer | 12 min ago"
-        android:textColor="@color/BrewBotBrown"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/statisticCard"
-        app:layout_constraintEnd_toEndOf="@+id/statisticCard"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/statisticCard"
-        app:layout_constraintTop_toTopOf="@+id/statisticCard"
-        app:layout_constraintVertical_bias="0.044" />
 
     <TextView
         android:id="@+id/statTitle"
@@ -300,7 +284,7 @@
         app:layout_constraintVertical_bias="0.119" />
 
     <TextView
-        android:id="@+id/accountSetttingsButton"
+        android:id="@+id/accountSettingsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:alpha="0"
@@ -363,10 +347,43 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintHorizontal_bias="0.836"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.078" />
+
+    <TextView
+        android:id="@+id/numOfTypes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:enabled="false"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="pils\nspecial\nalcohol-free"
+        android:textColor="@color/BrewBotBrown"
+        android:textSize="24sp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/statisticCard"
+        app:layout_constraintEnd_toEndOf="@+id/barplot"
+        app:layout_constraintStart_toStartOf="@+id/barplot"
+        app:layout_constraintTop_toBottomOf="@+id/profileText"
+        app:layout_constraintVertical_bias="0.29000002" />
+
+    <TextView
+        android:id="@+id/profileText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:enabled="false"
+        android:fontFamily="@font/zcool_qingke_huangyou"
+        android:text="Responsible drinker!"
+        android:textColor="@color/BrewBotBrown"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/statisticCard"
+        app:layout_constraintEnd_toEndOf="@+id/statisticCard"
+        app:layout_constraintStart_toStartOf="@+id/statisticCard"
+        app:layout_constraintTop_toTopOf="@+id/statisticCard"
+        app:layout_constraintVertical_bias="0.297" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

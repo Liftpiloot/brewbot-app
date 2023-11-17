@@ -36,18 +36,31 @@ public class User{
         this.pastWeekStats = pastWeekStats;
     }
 
-    public String getProfile() {
-        switch (profile){
-            case 0:
-                return "Responsible drinker!";
-            case 1:
-                return "Casual drinker";
-            case 2:
-                return "Alcoholic :(";
-            case 3:
-                return "Special beer lover";
+    public int[] getPastWeekTypes(){
+        int pils = 0;
+        int special = 0;
+        int zero = 0;
+        for (int[] day: pastWeekStats){
+            pils += day[1];
+            special += day[2];
+            zero += day[3];
         }
-        return "none";
+        return new int[]{pils, special, zero};
+    }
+
+    public Object[] getProfile() {
+        switch (profile) {
+            case 0:
+                return new Object[]{"Responsible drinker!", 0};
+            case 1:
+                return new Object[]{"Casual drinker", 1};
+            case 2:
+                return new Object[]{"Alcoholic :(", 2};
+            case 3:
+                return new Object[]{"Special beer lover", 3};
+            default:
+                return new Object[]{"none", -1};
+        }
     }
 
     public void setProfile(int profile) {

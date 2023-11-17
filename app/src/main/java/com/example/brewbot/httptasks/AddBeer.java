@@ -31,7 +31,7 @@ public class AddBeer extends AsyncTask<Void, Void, String> {
             showError(e.getMessage());
         }
         System.out.println(body);
-        client.prepare("POST", "https://brewbot.nl/api/user/beer")
+        client.prepare("GET", "https://brewbot.nl/api/user/tap/activate")
                 .setHeader("Content-Type", "application/json")
                 .setHeader("Accept", "application/json")
                 .setHeader("Authorization", "Bearer " + User.getInstance().getToken())

@@ -84,7 +84,6 @@ public class GetUserInfo extends AsyncTask {
                 }
                 double[] vector = {special,zero,pils};
                 User.getInstance().setProfile(findClosestCluster(vector, clusterMeans));
-                System.out.println(User.getInstance().getProfile());
 
                 // Go to homescreen
                 Intent intent = new Intent(this.context, homescreenActivity.class);
