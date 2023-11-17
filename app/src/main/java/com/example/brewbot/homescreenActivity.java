@@ -396,10 +396,11 @@ public class homescreenActivity extends AppCompatActivity {
             View child = barplot.getChildAt(6-i);
             child.setPadding(5, 0, 5, 0);
             int[] beerDay = data.get(6-i);
+            int numBeers = beerDay[1] + beerDay[2];
 
             // Get heights of bar
             float height = 550.0f / 6 * beerDay[1];
-            if (beerDay[1] >= 6) {
+            if (numBeers >= 6) {
                 height = 550;
             }
 
@@ -409,10 +410,10 @@ public class homescreenActivity extends AppCompatActivity {
 
             // Set color
             child.setBackgroundResource(R.drawable.bar);
-            if (beerDay[1] < 4) {
+            if (numBeers < 4) {
                 child.setBackgroundResource(R.drawable.bluebar);
             }
-            if (beerDay[1] < 2) {
+            if (numBeers < 2) {
                 child.setBackgroundResource(R.drawable.greenbar);
             }
             // Add days
@@ -429,9 +430,9 @@ public class homescreenActivity extends AppCompatActivity {
             TextView count = new TextView(this);
             count.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
             count.setGravity(Gravity.CENTER);
-            String number = String.valueOf(beerDay[1]);
+            String number = String.valueOf(numBeers);
             count.setTextColor(getResources().getColor(R.color.BrewBotBrown));
-            if (beerDay[1] < 2) {
+            if (numBeers < 2) {
                 number += "✔";
                 count.setTextColor(getResources().getColor(R.color.BrewBotOrange));
             }

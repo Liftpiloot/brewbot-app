@@ -14,7 +14,7 @@ public class User{
     private String recentTapMachine;
     private ArrayList<int[]> pastWeekStats;
     private Date lastBeer;
-    private String profile;
+    private int profile;
 
     private static User instance;
 
@@ -37,10 +37,20 @@ public class User{
     }
 
     public String getProfile() {
-        return profile;
+        switch (profile){
+            case 0:
+                return "Responsible drinker!";
+            case 1:
+                return "Casual drinker";
+            case 2:
+                return "Alcoholic :(";
+            case 3:
+                return "Special beer lover";
+        }
+        return "none";
     }
 
-    public void setProfile(String profile) {
+    public void setProfile(int profile) {
         this.profile = profile;
     }
 

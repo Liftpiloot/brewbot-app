@@ -45,20 +45,18 @@ public class GetPastSevenDays extends AsyncTask<Void, Void, ArrayList<int[]>> {
                 jsonObject = new JSONObject(response.getResponseBody());
                 JSONObject beerObject = jsonObject.getJSONObject("consumptions");
                 Iterator<String> keys = beerObject.keys();
+                int[][] beerTypes = new int[7][4];
                 while(keys.hasNext())
                 {
                     String date = keys.next();
                     JSONObject value = beerObject.optJSONObject(date);
                     assert value != null;
-
                     String[] daynum = date.split("-");
                     int pils = value.getInt("normal");
                     int zero = value.getInt("zero");
                     int special = value.getInt("special");
-                    int total = pils + zero + special;
-                    int[] daybeers = {Integer.parseInt(daynum[0]), total};
-                    returnArray.add(daybeers);
-                    System.out.println(Integer.parseInt(daynum[0]) + total);
+                    int[] total = {Integer.parseInt(daynum[0]), pils, special, zero};
+                    returnArray.add(total);
                 }
                 return returnArray;
             } catch (JSONException e) {

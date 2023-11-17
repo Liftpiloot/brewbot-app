@@ -21,6 +21,7 @@ import org.w3c.dom.Text;
 import org.pmml4s.model.Model;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class GetUserInfo extends AsyncTask {
     private final Context context;
@@ -66,10 +67,24 @@ public class GetUserInfo extends AsyncTask {
                 /*
                 Model bijgevoegd is om te testen, nieuw beter model is nog in ontwikkeling.
                  */
-                Model model = Model.fromFile("DrinkHabitsClassifier.pmml");
-                int[] data = {3,1,0}; // voorbeeld van de input
-                model.predict(data); // Output is x1, x2, x3, of x4
 
+                double[][] clusterMeans = {
+                        {0.25, 0.68, 0.43},
+                        {2,0,16.5},
+                        {1.5,0.33,5.58},
+                        {6.6,0,-0.6}};
+                ArrayList<int[]> stats = User.getInstance().getPastWeekStats();
+                int pils = 0;
+                int special = 0;
+                int zero = 0;
+                for (int[] day: stats){
+                    pils += day[1];
+                    special += day[2];
+                    zero += day[3];
+                }
+                double[] vector = {special,zero,pils};
+                User.getInstance().setProfile(findClosestCluster(vector, clusterMeans));
+                System.out.println(User.getInstance().getProfile());
 
                 // Go to homescreen
                 Intent intent = new Intent(this.context, homescreenActivity.class);
@@ -84,6 +99,26 @@ public class GetUserInfo extends AsyncTask {
             showError(e.getMessage());
             return null;
         }
+    }
+
+    public static int findClosestCluster(double[] vector, double[][] clusterMeans) {
+        int closestCluster = 0;
+        double closestDistance = Double.MAX_VALUE;
+
+        for (int i = 0; i < clusterMeans.length; i++) {
+            double distance = 0.0;
+            for (int j = 0; j < vector.length; j++) {
+                distance += Math.pow(vector[j] - clusterMeans[i][j], 2);
+            }
+            distance = Math.sqrt(distance);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestCluster = i;
+            }
+        }
+
+        return closestCluster;
     }
 
     protected void showError(String message)
