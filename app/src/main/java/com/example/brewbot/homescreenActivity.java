@@ -196,15 +196,12 @@ public class homescreenActivity extends AppCompatActivity {
     private void tapButtonAnimation(int time) {
         tapButtonSize = tapAnimation.getLayoutParams();
         ValueAnimator tapAnimator = ValueAnimator.ofFloat((float) tapButtonSize.height, (float) (tapButtonSize.height*1.1), tapButtonSize.height);
-        tapAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
-                float val = (Float) tapAnimator.getAnimatedValue();
-                ViewGroup.LayoutParams newButtonParams = tapAnimation.getLayoutParams();
-                newButtonParams.height = (int)val;
-                newButtonParams.width = (int)val;
-                tapAnimation.setLayoutParams(newButtonParams);
-            }
+        tapAnimator.addUpdateListener(valueAnimator -> {
+            float val = (Float) tapAnimator.getAnimatedValue();
+            ViewGroup.LayoutParams newButtonParams = tapAnimation.getLayoutParams();
+            newButtonParams.height = (int)val;
+            newButtonParams.width = (int)val;
+            tapAnimation.setLayoutParams(newButtonParams);
         });
         tapAnimator.setDuration(time);
         tapAnimator.start();
@@ -247,7 +244,7 @@ public class homescreenActivity extends AppCompatActivity {
     private void beerSelectionListeners() {
         pilsText.setOnClickListener(view -> {
             selectedOption.setText(pilsText.getText());
-            selectedBeer = "beer";
+            selectedBeer = "normal";
             closeBeerOptions();
         });
         alcoholFreeText.setOnClickListener(view -> {
@@ -457,7 +454,7 @@ public class homescreenActivity extends AppCompatActivity {
             beerlineHeight = beerLine.getLayoutParams().height;
         }
         //TODO implement actual tapping
-        AddBeer addbeer = new AddBeer(selectedBeer.toString(), this);
+        AddBeer addbeer = new AddBeer(selectedBeer, this);
         addbeer.execute();
         ValueAnimator beerUpAnimator = ValueAnimator.ofInt(beerlineHeight, beerlineHeight * 2);
         beerUpAnimator.addUpdateListener(valueAnimator -> {
